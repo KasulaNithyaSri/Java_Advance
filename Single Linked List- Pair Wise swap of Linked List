@@ -1,0 +1,89 @@
+Program on Single Linked List to find the pair wise swap in a list
+
+
+SAMPLE INPUT:
+
+1
+2
+3
+4
+5
+6
+-1
+
+SAMPLE OUTPUT:
+
+2
+1
+4
+3
+6
+5
+
+
+SOURCE CODE:
+
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data=x;
+        next=null;
+    }
+}
+class SingleList{
+    Node head,tail;
+    SingleList(){
+        head=tail=null;
+    }
+    
+    void create(int x){
+        Node n=new Node(x);
+        if(head==null){
+            head=tail=n;
+        }
+        else{
+            tail.next=n;
+            tail=n;
+        }
+    }
+    void swapList(){
+        if(head==null || head.next==null){
+            return;
+        }
+        Node temp=head;
+        while(temp!=null && temp.next!=null){
+            int cur=temp.data;
+            temp.data=temp.next.data;
+            temp.next.data=cur;
+            temp=temp.next.next;
+        }
+    }
+    void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+}
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+        Scanner s=new Scanner(System.in);
+        SingleList s1=new SingleList();
+        int x;
+        for(;;){
+            x=s.nextInt();
+            if(x==-1){
+                break;
+            }
+            else{
+                s1.create(x);
+            }           
+        }
+        s1.swapList();
+        s1.display();
+    }
+}
