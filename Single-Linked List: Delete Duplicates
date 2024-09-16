@@ -1,0 +1,114 @@
+Implement the single Linked List by deleting the duplicates from the list
+
+
+SAMPLE INPUT:
+
+1
+2
+3
+4
+3
+2
+-1
+
+SAMPLE OUTPUT:
+
+Linked list before removal of duplicates
+1 2 3 4 3 2
+Linked list after removal of duplicates
+1 2 3 4
+
+SOURCE CODE:
+
+
+import java.util.Scanner;
+
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data=x;
+        next=null;
+    }
+}
+class SingleList{
+    Node head,tail;
+    SingleList(){
+        head=tail=null;
+    }
+    void create(int x){
+        Node n=new Node(x);
+        if(head==null){
+            head=tail=n;
+        }
+        else{
+            tail.next=n;
+            tail=n;
+        }
+    }
+    void beforeDelete(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+    void afterDelete(){
+        Node current=head;
+        if(head==null){
+            return;
+        }
+        else{
+            while(current !=null){
+                Node temp=current;
+                while(temp!= null && temp.next!=null){
+                    if(current.data == temp.next.data){
+                        temp.next=temp.next.next;
+                    }
+                    else{
+                        temp=temp.next;
+                    }
+                }
+                current=current.next;
+            }
+        }
+    }
+    void display(){
+        Node temp=head;
+        if(head==null){
+            return;
+        }
+        else{
+            while(temp!=null){
+                System.out.print(temp.data+" ");
+                temp=temp.next;
+            }
+        }
+    }
+}
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner s=new Scanner(System.in);
+        SingleList s1=new SingleList();
+        int x;
+        for(;;){
+            x=s.nextInt();
+            if(x==-1){
+                break;
+            }
+            else{
+                s1.create(x);
+            }           
+        }
+        if(x==-1){
+            System.out.print("Linked list before removal of duplicates\n");
+            s1.beforeDelete();
+            System.out.println("\nLinked list after removal of duplicates");
+            s1.afterDelete();
+            s1.display();
+        }
+
+    }
+}
