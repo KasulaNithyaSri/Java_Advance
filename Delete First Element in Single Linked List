@@ -1,0 +1,78 @@
+SAMPLE INPUT:
+
+1
+2
+3
+4
+-1
+
+SAMPLE OUTPUT:
+
+2
+3
+4
+
+SOURCE CODE:
+import java.util.Scanner;
+
+import javax.swing.event.ListDataEvent;
+
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data=x;
+        next=null;
+    }
+
+}
+class Linked_List{
+    Node head,tail;
+    Linked_List(){
+        head=tail=null;
+    }
+    void create(int x){
+        Node n=new Node(x);
+        if(head==null){
+            head=tail=n;
+        }
+        else{
+            tail.next=n;
+            tail=n;
+        }
+    }
+    void display(){
+        if(head==null){
+            return;
+        }
+        Node temp=head.next;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+
+}
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+        Scanner s=new Scanner(System.in);
+        Linked_List s1=new Linked_List();
+        int x;
+        for(;;){
+            x=s.nextInt();
+            if(x==-1){
+                break;
+            }
+            else{
+                    s1.create(x);
+                
+            }
+
+        }
+        if(x==-1){
+            s1.display();
+        }
+
+    }
+}
