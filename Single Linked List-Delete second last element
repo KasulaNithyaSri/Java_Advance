@@ -1,0 +1,101 @@
+Program on single linked list to delete the second last element in the list
+
+SAMPLE INPUT:
+1
+2
+3
+4
+-1
+
+SAMPLE OUTPUT:
+
+Before deleting:
+1 2 3 4
+After deleting:
+1 2 4
+
+
+
+
+import java.util.Scanner;
+
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data= x;
+        next=null;
+    }
+}
+class SingleList{
+    Node head,tail;
+    SingleList(){
+        head=tail=null;
+    }
+    void create(int x){
+        Node n=new Node(x);
+        if(head==null){
+            head=tail=n;
+        }
+        else{
+            tail.next=n;
+            tail=n;
+        }
+    }
+    void SecondDelete(){
+        if(head==null || head.next==null){
+            System.out.print("Deletion of second last element is not possible");
+
+        }
+        else{
+            Node temp=head;
+        System.out.println("Before deleting:");
+        
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        temp=head;
+        int count=0;
+        while(temp!=null){
+            count++;
+            temp=temp.next;
+        }
+        temp=head;
+        count=count-1;
+        int pos=2;
+        while(pos< count && temp.next!=null){
+            pos++;
+            temp=temp.next;
+        }
+        Node temp1=temp;
+        temp.next = temp.next.next;
+        temp1.next.next=null;
+        temp=head;
+        System.out.println("\nAfter deleting:");
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        }
+    }
+   
+}
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+        Scanner s=new Scanner(System.in);
+        SingleList s1=new SingleList();
+        for(;;){
+            int x=s.nextInt();
+            if(x==-1){
+                break;
+            }
+            else{
+               s1.create(x); 
+               
+            }
+        }
+        s1.SecondDelete();
+    }
+}
