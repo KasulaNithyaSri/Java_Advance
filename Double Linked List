@@ -1,0 +1,98 @@
+import java.util.*;
+class Node{
+	int data;
+	Node prev,next;
+	Node(int x){
+		data=x;
+		prev=next=null;
+	}
+}
+class DoubleList{
+	Node head,tail;
+	DoubleList(){
+		head=tail=null;
+	}
+	void create(int x){
+		Node n=new Node(x);
+		if(head==null){
+			head=tail=n;
+		}else{
+		tail.next=n;
+		n.prev=tail;
+		tail=n;
+		}
+	}
+	void forwardDisplay(){
+		if(head==null){
+			System.out.println("List is Empty");
+			return;
+		}
+		Node temp=head;		
+			while(temp!=null){
+			System.out.print(temp.data+" ");
+ 			temp=temp.next;
+			}
+		
+	}
+	void backwardDisplay(){
+		if(head==null){
+			System.out.println("List is Empty ");
+			return;
+		}
+		Node temp=tail;
+		while(temp!=null){
+			System.out.print(temp.data+" ");
+			temp=temp.prev;
+		}
+	}
+	void insertFirst(int x){
+		Node n=new Node(x);
+		if(head==null){
+			head=tail=n;
+			return;
+		}
+		head.prev=n;
+		n.next=head;
+		head=n;
+  	}
+		
+}
+class Double_Linked_List{
+	public static void main(String[] args){
+		Scanner s=new Scanner(System.in);
+		DoubleList d1=new DoubleList();
+		for(;;){
+			System.out.println();
+			System.out.println("Enter your choice:\n1.Create\n2.Display\n3.Insert at Beginning\n4.Exit");
+			int ch=s.nextInt();
+			if(ch==1){
+				System.out.println("Enter the value: ");
+				int x=s.nextInt();
+				d1.create(x);
+			}
+			else if(ch==2){
+			System.out.println("Enter the Traversal Direction: \n1.Forward\n2.Backward");
+			int r=s.nextInt();
+			if(r==1)
+				d1.forwardDisplay();
+			else if(r==2)
+				d1.backwardDisplay();
+			else{
+				System.out.println("Invalid choice");
+			}
+			}
+			else if(ch==3){
+				System.out.println("Enter a value");
+				int x=s.nextInt();
+				d1.insertFirst(x);	
+			}
+			else if(ch==4){
+				break;
+			}
+			else 
+				System.out.println("Invalid choice");
+		}
+	}
+}
+				
+		
