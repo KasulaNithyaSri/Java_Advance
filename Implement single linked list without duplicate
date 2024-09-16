@@ -1,0 +1,87 @@
+program on single linked list by appending without duplicates
+
+
+SAMPLE INPUT:
+
+1
+2
+3
+2
+3
+1
+-1
+
+SAMPLE OUTPUT:
+
+1
+2
+3
+
+SOURCE CODE:
+
+
+import java.util.Scanner;
+
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data=x;
+        next=null;
+    }
+}
+class Append_Without_Duplicates{
+    Node head,tail;
+    Append_Without_Duplicates(){
+        head=tail=null;
+    }
+    void create(int x){
+        Node n=new Node(x);
+        Node temp=head;
+        if(head==null){
+            head=tail=n;
+        }
+        else{
+            while(temp!=null){
+                if(temp.data==x){
+                    return;
+                }
+                temp=temp.next;
+            }
+            tail.next=n;
+            tail=n;
+        }
+    }
+    void display(){
+        if(head==null){
+            return;
+        }
+        else{
+            Node temp=head;
+            while(temp!=null){
+                System.out.print(temp.data+" ");
+                temp=temp.next;
+            }
+        }
+    }
+}
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+        Scanner s=new Scanner(System.in);
+        Append_Without_Duplicates a1=new Append_Without_Duplicates();
+        int x;
+        for(;;){
+            x=s.nextInt();
+            if(x==-1){
+                break;
+            }
+            else{
+                a1.create(x);
+            }
+        }
+        if(x==-1)
+            a1.display();
+
+    }
+}
