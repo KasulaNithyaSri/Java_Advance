@@ -1,0 +1,77 @@
+Program on single linked list to find the maximum element
+
+SAMPLE INPUT:
+
+
+1
+5
+2
+4
+7
+3
+-1
+
+
+SAMPLE OUTPUT:
+7
+
+
+SOURCE CODE:
+
+
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data=x;
+        next=null;
+    }
+}
+class SingleList{
+    Node head,tail;
+    SingleList(){
+        head=tail=null;
+    }
+    
+    void create(int x){
+        Node n=new Node(x);
+        if(head==null){
+            head=tail=n;
+        }
+        else{
+            tail.next=n;
+            tail=n;
+        }
+    }
+    void findMax(){
+        Node temp=head;
+        Node max=head;
+        while(temp!=null){
+            if(max.data<temp.data){
+                max=temp;
+            }
+            temp=temp.next;
+        }
+        System.out.print(max.data);
+    }
+}
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+         Scanner s=new Scanner(System.in);
+        SingleList s1=new SingleList();
+        int x;
+        for(;;){
+            x=s.nextInt();
+            if(x==-1){
+                break;
+            }
+            else{
+                s1.create(x);
+            }           
+        }
+        s1.findMax();
+
+    }
+}
