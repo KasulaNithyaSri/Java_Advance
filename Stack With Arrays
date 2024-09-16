@@ -1,0 +1,76 @@
+Program on Stack with Arrays:
+
+
+SOURCE CODE:
+
+
+import java.util.Scanner;
+class MyStack{
+	int a[];
+	int size;
+	int top;
+	MyStack(int n){
+		a=new int[n];
+		size=n;
+		top=-1;
+	}
+	void push(int x){
+		if(top==size-1){
+			System.out.println("Stack is overflow");
+			return;
+		}
+		top=top+1;
+		a[top]=x;
+	}
+	void pop(){
+		if(top==-1){
+			System.out.println("Stack is Empty");
+			return;
+		}
+		System.out.println(a[top]+" is deleted ");
+		top--;		
+	}
+	void display()
+	{	
+		if(top==-1){
+			System.out.println("Stack is Empty");
+			return;
+		}
+		for(int i=top;i>=0;i--)
+		{
+			System.out.print(a[i]+" ");
+			
+		}
+	}
+}
+class Stack_With_Array{
+	public static void main(String[] args){
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the Size: ");
+		int n=s.nextInt();
+		MyStack s1=new MyStack(n);
+		for(;;){
+			
+			System.out.println("\n1.PUSH\n2.POP\n3.PRINT\n4.EXIT\n");
+			System.out.println("Enter your Choice: ");
+			int ch=s.nextInt();
+			if(ch==1){
+				System.out.println("Enter an Element: ");
+				int x=s.nextInt();
+				s1.push(x);
+			}
+			else if(ch==2){
+				s1.pop();
+			}
+			else if(ch==3)
+			{
+				s1.display();
+			}
+			else if(ch==4)
+				break;
+			else
+				System.out.println("Invalid Choice ");
+		}
+	}
+}
+			
