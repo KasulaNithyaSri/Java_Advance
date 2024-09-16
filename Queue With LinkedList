@@ -1,0 +1,85 @@
+import java.util.Scanner;
+class Node{
+	int data;
+	Node next;
+	Node(int x){
+		data=x;
+		next=null;
+	}
+}
+class MyQueue{
+	Node head;
+	Node tail;
+	MyQueue(){
+		head=null;
+		tail=null;
+	}
+	void enQueue(int x){
+		Node n=new Node(x);
+		if(n==null){
+			System.out.println("Queue is full");
+			return;
+		}
+		
+		if(head==null){
+			tail=head=n;
+			return;
+		}
+		tail.next=n;
+		tail=n;
+	}
+	void deQueue(){
+		if(head==null){
+			System.out.println("Queue is Empty");
+			return;
+		}
+		
+		System.out.println(head.data+" is deleted ");
+		Node temp=head;
+		head=head.next;
+		temp=null;
+				
+	}
+	void display()
+	{	
+		if(head==null){
+			System.out.println("Queue is Empty");
+			return;
+		}
+		Node i;
+		for( i=head;i!=null;i=i.next)
+		{
+			System.out.print(i.data+" ");
+			
+		}
+	}
+}
+class Queue_With_LinkedList{
+	public static void main(String[] args){
+		Scanner s=new Scanner(System.in);
+		MyQueue s1=new MyQueue();
+		for(;;){
+			
+			System.out.println("\n1.ENQUEUE\n2.DEQUEUE\n3.PRINT\n4.EXIT\n");
+			System.out.println("Enter your Choice: ");
+			int ch=s.nextInt();
+			if(ch==1){
+				System.out.println("Enter an Element: ");
+				int x=s.nextInt();
+				s1.enQueue(x);
+			}
+			else if(ch==2){
+				s1.deQueue();
+			}
+			else if(ch==3)
+			{
+				s1.display();
+			}
+			else if(ch==4)
+				break;
+			else
+				System.out.println("Invalid Choice ");
+		}
+	}
+}
+			
