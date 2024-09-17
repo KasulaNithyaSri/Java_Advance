@@ -1,0 +1,130 @@
+Program on ArrayList implementing all the methods:
+
+
+
+SOURCE CODE:
+
+
+import java.util.*;
+class ArrayListStringAllMethods 
+{
+	public static void main(String[] args)
+	{
+		ArrayList<String> obj=new ArrayList<String>();
+
+		//add Method
+
+		obj.add("Nithya");
+		obj.add("Sri");
+		obj.add("Reddy");
+		System.out.println("String Elements are: "+obj);
+
+		//add() Method with Index
+
+		obj.add(0,"Kasula");
+		System.out.println("String Elements are: "+obj);
+
+		//get(index) Method
+
+		System.out.println(obj.get(1));
+		obj.add(0,"K");
+		System.out.println("Updated ArrayList:"+obj);
+		
+		// set(,) method
+	
+		obj.set(4,"B.tech");
+		System.out.println("Updated ArrayList: "+obj);
+	
+		// remove(index) method
+
+		String str = obj.remove(2);
+		System.out.println("Removed Element in ArrayList:" + str);
+		System.out.println("Updated ArrayList:"+obj);
+
+		// removeAll(object)
+
+		//obj.removeAll(obj);
+		//System.out.println(obj);
+		
+		ArrayList<String> obj2=new ArrayList<String>();
+		obj2.add("K");
+		obj2.add("Reddy");
+		obj2.add("593");
+		obj2.add("Vignan");
+
+
+
+		System.out.println("Other ArrayList: "+obj2);
+	
+		//obj.removeAll(obj2);
+		System.out.println(obj);
+
+		System.out.println("retainAll() Method: ");
+		obj.retainAll(obj2);
+		System.out.println(obj);
+		//clear() method
+
+		//obj.clear();
+		//System.out.println("clear() Method: "+obj);
+		
+		//Iteration-for loop
+
+		/*for(int i=0;i<obj.size() ; i++){
+			System.out.println(obj.get(i));
+		}
+
+		//Iteration: for-each
+
+		for(String x:obj){
+			System.out.println(x);
+		}*/
+	
+		System.out.println("indexOf() Method: "+obj.indexOf("R"));
+		System.out.println("indexOf() Method: "+obj.indexOf("K"));
+
+		//obj.removeAll(obj);
+		System.out.println("isEmpty() Method: "+obj.isEmpty());
+		System.out.println("lastIndexOf() Method: "+obj2.lastIndexOf("Reddy"));
+		
+		System.out.println("contains() Method: "+obj2.contains("Reddy"));
+
+		//obj2.removeRange(0,2);
+		//System.out.println("removeRange() Method: "+obj2);
+
+		System.out.println("sort() Method: ");
+		Collections.sort(obj2);
+		System.out.println(obj2);
+
+		obj2.trimToSize();
+		System.out.println("trimToSize() Method: "+obj2);
+		obj2.add("jntuh");
+		System.out.println(obj2);
+			
+	}
+
+
+}
+
+
+OUTPUT:
+
+String Elements are: [Nithya, Sri, Reddy]
+String Elements are: [Kasula, Nithya, Sri, Reddy]
+Nithya
+Updated ArrayList:[K, Kasula, Nithya, Sri, Reddy]
+Updated ArrayList: [K, Kasula, Nithya, Sri, B.tech]
+Removed Element in ArrayList:Nithya
+Updated ArrayList:[K, Kasula, Sri, B.tech]
+Other ArrayList: [K, Reddy, 593, Vignan]
+[K, Kasula, Sri, B.tech]
+retainAll() Method:
+[K]
+indexOf() Method: -1
+indexOf() Method: 0
+isEmpty() Method: false
+lastIndexOf() Method: 1
+contains() Method: true
+sort() Method:
+[593, K, Reddy, Vignan]
+trimToSize() Method: [593, K, Reddy, Vignan]
+[593, K, Reddy, Vignan, jntuh]
