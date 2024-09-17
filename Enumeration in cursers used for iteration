@@ -1,0 +1,27 @@
+Source code:
+
+import java.util.*;
+class Cursors_Enumeration
+{
+	public static void main(String[] args)
+	{
+		Vector<String> v=new Vector<String>();
+		Enumeration<String> e=v.elements();
+		v.add("Nithya");
+		v.add("Sri");
+		v.add("sister of");
+		v.add("Charan deep reddy");
+		while(e.hasMoreElements())
+		{
+			System.out.print(e.nextElement()+" ");
+		}
+	}
+}
+
+
+OUTPUT:
+
+D:\Advance Java\Collections>javac Cursors_Enumeration.java
+
+D:\Advance Java\Collections>java  Cursors_Enumeration
+Nithya Sri sister of Charan deep reddy
