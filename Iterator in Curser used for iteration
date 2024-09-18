@@ -1,0 +1,32 @@
+Program on perfotming iteration using iterator() methos:
+
+
+SOURCE CODE:
+
+import java.util.*;
+class Cursor_Iterator
+{
+	public static void main(String[] args)
+	{
+		Scanner s=new Scanner(System.in);
+		LinkedList<Integer> list=new LinkedList<Integer>();		
+		int x;
+		System.out.println("Enter the elements until -1");
+		for(;;){
+			x=s.nextInt();
+			if(x==-1)
+			{
+				break;
+			}
+			list.add(x);
+		}
+		Iterator itr=list.iterator();
+		while(itr.hasNext())
+		{
+			System.out.println(itr.next());
+		}
+	}
+}
+
+
+
