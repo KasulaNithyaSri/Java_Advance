@@ -21,12 +21,13 @@ class Cursor_Iterator
 			list.add(x);
 		}
 		Iterator itr=list.iterator();
+		System.out.println("Elements are: ");
 		while(itr.hasNext())
 		{
 			System.out.println(itr.next());
 		}
+		itr.remove();
+		System.out.println("Removing an elemet using remove() method:"+list);
+		
 	}
 }
-
-
-
