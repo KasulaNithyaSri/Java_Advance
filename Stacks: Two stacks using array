@@ -7,6 +7,31 @@ Enter pop size to delete the elemenst from stack 1
 enter the pop size to delete the elements from stack 2
 
 
+INPUT:
+
+3
+2 5 7
+2
+1 2
+4
+1
+
+OUTPUT:
+
+Stack 1 Elements:
+7 5 2
+Stack 2 Elements:
+2 1
+Stack underflow. pop from stack 1 failed
+Stack 1 Elements:
+
+Stack 2 Elemets:
+1
+
+
+
+
+
 SOURCE CODE:
 
 import java.util.Scanner;
