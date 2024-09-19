@@ -1,0 +1,74 @@
+write a program using two stacks using one array.
+read size of 1st fist stack
+read the elemensts
+read size of 2nd stack
+read the elements
+Enter pop size to delete the elemenst from stack 1
+enter the pop size to delete the elements from stack 2
+
+
+SOURCE CODE:
+
+import java.util.Scanner;
+import java.util.Stack;
+
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+        Scanner s=new Scanner(System.in);
+        Stack<Integer> s1=new Stack<>();
+        Stack<Integer> s2=new Stack<>();
+        int n1=s.nextInt();
+        int x,y;
+        for(int i=0;i<n1;i++){
+            x=s.nextInt();
+            s1.push(x);
+        }
+        int n2=s.nextInt();
+        for(int i=0;i<n2;i++){
+            y=s.nextInt();
+            s2.push(y);
+        }
+        System.out.println("Stack 1 Elements:");
+        for(int i=s1.size()-1;i>=0;i--){
+            System.out.print(s1.get(i)+" ");
+        }
+        System.out.println();
+        System.out.println("Stack 2 Elements:");
+        for(int i=s2.size()-1;i>=0;i--){
+            System.out.print(s2.get(i)+" ");
+        }
+        System.out.println();
+        int pop1=s.nextInt();
+        for(int i=0;i<pop1;i++){
+            if(!s1.empty()){
+                s1.pop();
+            }
+            else{
+                System.out.println("Stack underflow. pop from stack 1 failed");
+                break;
+            }
+        }
+        int pop2=s.nextInt();
+        for(int i=0;i<pop2;i++){
+            if(!s2.empty()){
+                s2.pop();
+            }
+            else{
+                System.out.println("Stack underflow. pop from stack 2 failed");
+                break;
+            }
+        }
+        System.out.println("Stack 1 Elements:");
+        for(int i=s1.size()-1;i>=0;i--){
+            System.out.print(s1.get(i)+" ");
+        }
+        System.out.println();
+        System.out.println("Stack 2 Elements:");
+        for(int i=s2.size()-1;i>=0;i--){
+            System.out.print(s2.get(i)+" ");
+        }
+        System.out.println();
+    }
+}
