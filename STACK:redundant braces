@@ -1,0 +1,48 @@
+INPUT:
+
+((a+b))
+
+OUTPUT:
+
+Yes
+
+OUTPUT:
+
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        // Write your code here
+        Scanner s=new Scanner(System.in);
+        String str=s.next();
+        Stack<Character> s1=new Stack<>();
+        boolean flag=false;
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            if(ch== '(' || ch=='-' || ch=='+' || ch=='*' || ch=='/'){
+                s1.push(ch);
+            }
+            else if(ch==')'){
+                char top=s1.pop();
+                if(top=='('){
+                    flag=true;
+                    break;
+                }
+                else{
+                    while(top!='('){
+                        if(top== '-' || top=='+' || top=='*' || top=='/')
+                            flag=false;
+                        top=s1.pop();
+                   } 
+                }
+             }
+        }
+          
+        if(flag==true){
+            System.out.print("Yes");
+        }
+        else
+            System.out.print("No");
+        
+
+    }
+}
