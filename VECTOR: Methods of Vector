@@ -1,0 +1,31 @@
+Write a Program to implement the Vector
+
+
+SOURCE CODE:
+
+import java.util.*;
+class Vector_Class
+{
+	public static void main(String[] args)
+	{	
+		Scanner s=new Scanner(System.in);
+		Vector<Integer> v=new Vector<>();//By default it stores 10
+		System.out.println(v.capacity());
+		int x;
+		System.out.println("Enter the elements until -1");
+		for(;;)
+		{
+			x=s.nextInt();
+			if(x==-1)
+				break;
+			v.add(x);
+			
+		}
+		System.out.println(v);
+		System.out.println(v.capacity());
+		v.add(88);
+		System.out.println(v);
+		System.out.println(v.capacity());
+		System.out.println(v.size());
+	}
+}
