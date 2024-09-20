@@ -1,0 +1,31 @@
+Write a Program to implement all the methods in a stack
+
+
+
+SOURCE CODE:
+
+import java.util.*;
+class Stack_Class
+{
+	public static void main(String[] args)
+	{
+		Scanner s=new Scanner(System.in);
+		Stack<Integer> s1=new Stack<>();
+		int x;
+		System.out.println("Enter the elements untill -1");
+		for(;;)
+		{
+			x=s.nextInt();
+			if(x==-1)
+				break;
+			s1.push(x);
+			
+		}
+		System.out.println("Printing all the elements: "+s1);
+		System.out.println("Delete the element: "+s1.pop());
+		System.out.println("Display peek element: "+s1.peek());
+		System.out.println("Searching an element: "+s1.search(1));
+		System.out.println("Searching an element: "+s1.search(10));
+		System.out.println("Checking whether the stack is empty: "+s1.empty());		
+	}
+}
