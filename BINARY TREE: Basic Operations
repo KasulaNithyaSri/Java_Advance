@@ -1,0 +1,95 @@
+Program on basic operation in BINARY TREE such as insertion,display,count the number of nodes in a tree
+
+
+SOURCE CODE:
+
+
+import java.util.*;
+class Node{
+	int data;
+	Node left,right;
+	Node(int x)
+	{
+		data=x;
+		left=null;
+		right=null;
+	}
+	void insert(Node root,int x)
+	{
+		Queue<Node> que=new LinkedList<>();
+		que.add(root);
+		while(!que.isEmpty())
+		{
+			Node temp=que.poll();
+			if(temp.left==null)
+			{
+				temp.left=new Node(x);
+				break;
+			}
+			else
+				que.add(temp.left);
+			if(temp.right==null)
+			{
+				temp.right=new Node(x);
+				break;
+			}
+			else
+				que.add(temp.right);
+		}
+	}
+	void display(Node root)
+	{
+		if(root!=null)
+		{
+			display(root.left);
+			System.out.print(root.data+" ");
+			display(root.right);
+		}
+	}
+	public int countNodes(Node root)
+	{
+		int c=0;
+		if(root!=null)
+		{
+			c=1+countNodes(root.left)+countNodes(root.right);
+		}
+		else
+			return 0;
+		return c;
+	}		
+}
+class Binary_Tree
+{
+	public static void main(String[] args)
+	{
+		int x;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the root Element:");
+		x=s.nextInt();
+		Node root=new Node(x);
+		while(true)
+		{
+			System.out.println("\n1.Insert\n2.Display\n3.Count Nodes\n4.Exit\n");
+			System.out.println("Enter your choice:");
+			int ch=s.nextInt();
+			if(ch==1)
+			{
+				System.out.println("Enter an element:");
+				x=s.nextInt();
+				root.insert(root,x);
+			}
+			else if(ch==2)
+				root.display(root);
+			else if(ch==3)
+			{
+				int c;
+				c=root.countNodes(root);
+				System.out.println("Number of nodes in tree: "+c);
+			}
+			else if(ch==4)
+				break;
+			else 
+				System.out.println("Invalid Choice");
+		}
+	}
+}
